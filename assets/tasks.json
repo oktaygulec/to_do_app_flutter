@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Task 1", 
+    "date": "DateTime.now()",
+    "isDone": false,
+    "reminder": false,
+    "color": "Colors.orange",
+    "icon": "0xe318"
+  },
+  {
+    "title": "Task 2", 
+    "date": "DateTime.now()",
+    "isDone": false,
+    "reminder": true,
+    "color": "Colors.red",
+    "icon": "Icons.headset"
+  }
+]
