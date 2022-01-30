@@ -31,6 +31,9 @@
 .pub/
 /build/
 
+# Keys, URI's etc.
+lib/service/api/_URIs.dart
+
 # Web related
 lib/generated_plugin_registrant.dart
 
