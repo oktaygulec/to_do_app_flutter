@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           default:
             return MaterialApp(
+              debugShowCheckedModeBanner: false,
               title: "ToDoApp",
               initialRoute: user!.token.isEmpty ? '/login' : '/home',
               routes: <String, WidgetBuilder>{
