@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'circle_icon.dart';
+import 'package:todoapp/data/constants/icons.dart';
+import '/presentation/widgets/circle_icon.dart';
 
 class TaskItemContent extends StatelessWidget {
-
   final String title;
-  final DateTime date;
-  final IconData icon;
-  final Color color;
+  final String date;
+  final String icon;
+  final String color;
 
   TaskItemContent({
-    required this.title, 
-    required this.date, 
+    required this.title,
+    required this.date,
     required this.icon,
     required this.color,
   });
@@ -22,9 +22,10 @@ class TaskItemContent extends StatelessWidget {
       child: Row(
         children: [
           CircleIcon(
-            color: color, 
-            icon: icon, 
-            margin: EdgeInsets.only(right: 16)),
+              color: Color(int.parse(color)),
+              icon: List.of(pickerIcons).firstWhere(
+                  (element) => element.codePoint.toString() == icon),
+              margin: EdgeInsets.only(right: 16)),
           Expanded(
             child: Column(
               children: [
@@ -35,23 +36,27 @@ class TaskItemContent extends StatelessWidget {
                     title,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600
-                    ),
+                        color: Theme.of(context).textTheme.bodyText2?.color,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
                   ),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    DateFormat('dd.MM.yyyy HH:mm').format(date).toString(),
+                    DateFormat('dd.MM.yyyy HH:mm')
+                        .format(DateTime.parse(date))
+                        .toString(),
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal
-                    ),
+                        color: Theme.of(context)
+                            .textTheme
+                            .bodyText2
+                            ?.color
+                            ?.withOpacity(.55),
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal),
                   ),
                 ),
               ],
@@ -61,5 +66,4 @@ class TaskItemContent extends StatelessWidget {
       ),
     );
   }
-
 }

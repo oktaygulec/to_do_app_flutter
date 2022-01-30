@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import '/widgets/task_item.dart';
-import '/models/task.dart';
+import '/data/models/task.dart';
+import './task_item.dart';
 
 class TaskList extends StatelessWidget {
   final List<Task> tasks;
   final Function onDone;
   final Function onDelete;
-  final bool showDone;
 
-  TaskList(
-      {required this.tasks,
-      required this.onDone,
-      required this.onDelete,
-      this.showDone = true});
+  TaskList({required this.tasks, required this.onDone, required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +17,6 @@ class TaskList extends StatelessWidget {
           task: task,
           onDone: onDone,
           onDelete: onDelete,
-          showDone: showDone,
         ),
     ]);
   }
