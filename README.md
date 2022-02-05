@@ -1,6 +1,7 @@
 # To Do App Flutter
 
-Simple To Do app.
+Simple Flutter To Do application.
+User and Task (To do) data is coming from Node.JS server (URIs are doesn't included in the repository) with HTTP requests.
 
 ## Dark Theme
 
